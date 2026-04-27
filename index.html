@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf7ee">
+  <title>잠언 말씀</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#verses">본문으로 바로가기</a>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">하나님 아버지 말씀</p>
+      <h1>잠언</h1>
+    </div>
+    <a class="admin-link" href="admin.html" aria-label="관리자 설정">설정</a>
+  </header>
+
+  <main class="app">
+    <section class="selector-card" aria-label="말씀 선택">
+      <label>
+        <span>장</span>
+        <select id="chapterSelect" aria-label="장 선택"></select>
+      </label>
+      <label>
+        <span>시작 절</span>
+        <select id="verseSelect" aria-label="시작 절 선택"></select>
+      </label>
+    </section>
+
+    <section class="listen-status" aria-live="polite">
+      <div>
+        <strong id="currentRef">잠언 1장 1절</strong>
+        <p id="listenHint">절을 터치하면 그 절부터 읽을 수 있어요.</p>
+      </div>
+    </section>
+
+    <section class="mini-actions" aria-label="기록 기능">
+      <button id="favBtn" type="button">☆ 저장</button>
+      <button id="noteOpenBtn" type="button">노트</button>
+      <button id="favListBtn" type="button">목록</button>
+    </section>
+
+    <section id="notePanel" class="panel hidden" aria-label="노트 작성">
+      <div class="panel-head"><strong id="noteTitle">노트</strong><button id="noteCloseBtn" class="small-btn" type="button">닫기</button></div>
+      <textarea id="noteText" placeholder="이 말씀에서 받은 마음을 적어두세요." aria-label="노트 내용"></textarea>
+      <button id="noteSaveBtn" class="primary full" type="button">노트 저장</button>
+    </section>
+
+    <section id="favPanel" class="panel hidden" aria-label="즐겨찾기 목록">
+      <div class="panel-head"><strong>즐겨찾기</strong><button id="favCloseBtn" class="small-btn" type="button">닫기</button></div>
+      <div id="favList" class="fav-list"></div>
+    </section>
+
+    <article id="verses" class="verses" aria-live="polite"></article>
+  </main>
+
+  <nav class="player" aria-label="음성 재생">
+    <button id="prevBtn" type="button" class="ghost">이전</button>
+    <button id="speakBtn" type="button" class="play">선택 절부터 읽기</button>
+    <button id="stopBtn" type="button" class="ghost">멈춤</button>
+    <button id="nextBtn" type="button" class="ghost">다음</button>
+  </nav>
+
+  <script src="app-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
